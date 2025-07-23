@@ -1,16 +1,12 @@
-<!DOCTYPE html><html lang="en-US"><head>
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Starfall Education: Kids Games, Movies, Books & Music for K-5 and above</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="At Starfall, children have fun while they learn - specializing in reading, phonics & math - educational games, movies, books, songs, and more for children K-5 and above.">
 <link rel="canonical" href="https://www.starfall.com/">
-<link rel="stylesheet" href="css/stylesheet.css">
-<link rel="stylesheet" href="css/stylesheet_1.css">
-<link rel="stylesheet" href="css/StarfallvBP.css">
-<script src="js/Cookies.js"></script>
-<script src="js/jquery-3.2.1.min.js"></script>
 <style>
-    
 /* ------------------------------------------------------------------- */
 /*  02. Layout Components
 ---------------------------------------------------------------------- */
@@ -28,17 +24,50 @@ vertical-align: baseline;
 margin: 0;
 }
 html {
--webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape while allowing user zoom */
+-webkit-text-size-adjust: 100%;
 -moz-text-size-adjust: 100%;
 -ms-text-size-adjust: 100%;
 text-size-adjust: 100%;
 }
+
+/* Skip Link Styles */
+.skip-link {
+position: absolute;
+top: -40px;
+left: 6px;
+background: #000;
+color: #fff;
+padding: 8px 12px;
+text-decoration: none;
+z-index: 1000;
+border-radius: 0 0 4px 4px;
+font-weight: bold;
+}
+
+.skip-link:focus {
+top: 6px;
+outline: 2px solid #fff;
+outline-offset: 2px;
+}
+
+/* Enhanced Focus Styles */
+a:focus,
+button:focus,
+input:focus,
+[tabindex]:focus {
+outline: 3px solid #0066cc;
+outline-offset: 2px;
+background-color: rgba(255, 255, 255, 0.9);
+border-radius: 2px;
+}
+
 .site-container{
 max-width: 1080px;
 margin: 0 auto;
 }
 body.starfall-homepage{
 background-color: #78e22a;
+font-family: Arial, sans-serif;
 }
 body.starfall-homepage div#wrapper{
 overflow: hidden;
@@ -79,7 +108,7 @@ justify-content: center;
 -webkit-justify-content: center;
 }
 .menu-bar li a {
-font-family: 'VAGzStarBold';
+font-family: 'VAGzStarBold', Arial, sans-serif;
 color: #fdfefd;
 font-size: 22px;
 padding: 16px 20px 12px;
@@ -108,8 +137,10 @@ height: 100%;
 right: 0;
 border-radius: 5px;
 }
-.menu-bar li a:hover{
+.menu-bar li a:hover,
+.menu-bar li a:focus{
 color: #fdfe7e;
+background-color: rgba(0, 0, 0, 0.2);
 }
 .hamburger-element {
 width: 46px;
@@ -117,6 +148,10 @@ display: flex;
 flex-direction: column;
 margin: 0 0 0 50px;
 cursor: pointer;
+background: none;
+border: none;
+padding: 8px;
+border-radius: 4px;
 }
 .hamburger-element span {
 width: 100%;
@@ -125,13 +160,29 @@ height: 4px;
 display: block;
 margin: 0 0 7px;
 transition: 0.3s;
+border-radius: 2px;
 }
-.hamburger-element:hover span{
+.hamburger-element:hover span,
+.hamburger-element:focus span{
 background: #fdfe7e;
 }
 .hamburger-element span:last-child {
 margin: 0;
 }
+
+/* Screen reader only text */
+.sr-only {
+position: absolute;
+width: 1px;
+height: 1px;
+padding: 0;
+margin: -1px;
+overflow: hidden;
+clip: rect(0, 0, 0, 0);
+white-space: nowrap;
+border: 0;
+}
+
 .banner-section{
 background-image: url(images/banner-BG-final.png);
 background-repeat: no-repeat;
@@ -167,16 +218,33 @@ padding: 35px 0 0 0;
 .kindergarten-grades-section > div {
 margin: 0 35px;
 }
+
+.grade-link {
+display: block;
+text-decoration: none;
+border-radius: 8px;
+transition: transform 0.2s ease;
+}
+
+.grade-link:hover,
+.grade-link:focus {
+transform: scale(1.05);
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
 .banner-links-block li a {
-font-family: 'liberation_sansbold';
+font-family: 'liberation_sansbold', Arial, sans-serif;
 color: #0331ba;
-padding: 0 15px;
+padding: 8px 15px;
 font-size: 18px;
 transition: 0.3s;
 position: relative;
+border-radius: 4px;
 }
-.banner-links-block li a:hover{
+.banner-links-block li a:hover,
+.banner-links-block li a:focus{
 color: #000000;
+background-color: rgba(255, 255, 255, 0.8);
 }
 .banner-links-block li a::after {
 background: #0331ba;
@@ -198,13 +266,10 @@ max-width: 1080px;
 margin: 35px auto 0;
 }
 section.home-accessibility-section {
-font-family: 'liberation_sansbold';
+font-family: 'liberation_sansbold', Arial, sans-serif;
 background-color: #78e22a;
 padding: 0px 0 15px;
 color: #003300;
-}
-.home-accessibility-section {
-
 }
 .home-accessibility-block h2 {
 text-align: center;
@@ -214,23 +279,26 @@ color: #0000e4;
 font-size: 1.2em;
 text-decoration: underline;
 }
-.home-accessibility-block h2 a:focus{
-outline: 2px solid #fff;
-}
 .home-accessibility-block h1{
 font-size: 20px;
 text-align: center;
 padding: 0px 0px 15px 0px;
 }
+.home-accessibility-block h2{
+font-size: 18px;
+text-align: left;
+padding: 15px 0px 10px 0px;
+font-weight: bold;
+}
 .home-accessibility-block p {
 font-size: 15px;
 padding: 0 0 12px 0;
 line-height: 20px;
-font-family: 'Liberation Sans Regular';
+font-family: 'Liberation Sans Regular', Arial, sans-serif;
 }
 
 .mobile-menu-block {
-position: absolute;
+position: fixed;
 right: -100%;
 background: #fff;
 height: 100vh;
@@ -241,27 +309,52 @@ opacity: 0;
 transition: 0.3s all ease-in-out;
 box-shadow: 0 0 49px rgba(0,0,0,0.15);
 }
-.mobile-menu-block.is-open {
+.mobile-menu-block[aria-hidden="false"] {
 opacity: 1;
 right: 0;
 transition: 0.3s all ease-in-out;
 }
-img.closeNav {
+.mobile-menu-close {
 width: 32px;
+height: 32px;
 position: absolute;
 right: 25px;
 top: 25px;
 cursor: pointer;
+background: none;
+border: none;
+padding: 4px;
+border-radius: 4px;
+}
+.mobile-menu-close:focus {
+outline: 2px solid #0066cc;
+}
+.mobile-menu-close::before,
+.mobile-menu-close::after {
+content: '';
+position: absolute;
+top: 50%;
+left: 50%;
+width: 20px;
+height: 2px;
+background: #333;
+transform: translate(-50%, -50%) rotate(45deg);
+}
+.mobile-menu-close::after {
+transform: translate(-50%, -50%) rotate(-45deg);
 }
 .mobile-menu-block li a {
 color: #333333;
-font-family: 'liberation_sansbold';
-padding: 0 0 22px 0;
+font-family: 'liberation_sansbold', Arial, sans-serif;
+padding: 12px 0;
 transition: 0.3s;
+display: block;
+border-radius: 4px;
 }
-.mobile-menu-block li a:hover{
+.mobile-menu-block li a:hover,
+.mobile-menu-block li a:focus{
 color: #333333;
-opacity: 0.8;
+background-color: rgba(0, 102, 204, 0.1);
 }
 .mobile-menu-block li::before{
 display: none !important;
@@ -270,20 +363,20 @@ display: none !important;
 display: none !important;
 }
 .mobile-menu-block ul {
-padding: 48px 0 0 48px;
+padding: 60px 48px 48px 48px;
 }
 .mobile-menu-block-overlay {
-position: absolute;
+position: fixed;
 right: 0;
 top: 0;
 width: 100%;
 height: 100vh;
-background: rgba(0,0,0,0.1);
+background: rgba(0,0,0,0.5);
 z-index: -99;
 opacity: 0;
 transition: 0.4s all ease-in-out;
 }
-.mobile-menu-block-overlay.is-active {
+.mobile-menu-block-overlay[aria-hidden="false"] {
 opacity: 1;
 z-index: 9;
 }
@@ -296,57 +389,62 @@ margin-top: -47px;
 .home-accessibility-section .home-accessibility-block.privacy-showing {
 margin-top:0px;
 }
-.home-accessibility-section {
 
+.cookiePolicy-block {
+background: #fff;
+text-align: center;
+padding: 15px 20px;
+font-family: 'Liberation Sans Regular', Arial, sans-serif;
+margin: 0 0 28px 0;
+border: 2px solid #0066cc;
+border-radius: 8px;
 }
-.banner-links-block li a:focus span{
-outline: 2px solid #000000;
+.cookiePolicy-block p {
+font-size: 15px;
+line-height: 19px;
+margin-bottom: 10px;
 }
-.home-accessibility-block p .read-More:focus, .home-accessibility-block p .read-More-mob:focus{
-outline: 2px solid #000000;
+.cookiePolicy-block p a{
+color: #0000e4;
+text-decoration: underline;
+font-size: 15px;
+display: inline-block;
 }
-#policyForm {
-all: unset; /* Remove all default styles from the form */
-display:inline;
-}
-.cookiePolicy-block p button.privacyPolicy-ok {
+.privacyPolicy-ok {
 background: #0000e4;
 color: #fff;
 text-decoration: none;
-padding: 3px 8px 1px 8px;
-border-radius: 3px;
-margin: 0px 0 0 12px;
+padding: 8px 16px;
+border-radius: 4px;
+margin: 0 0 0 12px;
+border: none;
+cursor: pointer;
+font-weight: bold;
 }
-.home-accessibility-block p .read-More, .home-accessibility-block p .read-More-mob {
+.privacyPolicy-ok:hover,
+.privacyPolicy-ok:focus {
+background: #0052cc;
+}
+.cookiePolicy-block.hide-it {
+display: none;
+}
+
+.read-more-button {
 color: #0331ba;
-display:none;
-}
-.read-More.read-More-mob {
-display: none !important;
-}
-
-.readmoreForm button {
-display:inline;
-background-color:none;
-background:none;
+background: none;
+border: none;
+text-decoration: underline;
+cursor: pointer;
+font-family: inherit;
+font-size: inherit;
+padding: 2px 4px;
+border-radius: 2px;
 }
 
-.hamburgerForm button {
-background:none;
+.read-more-button:hover,
+.read-more-button:focus {
+background-color: rgba(3, 49, 186, 0.1);
 }
-
-.grades-block.grades-block45 a{
-position: relative;
-display:block;
-}
-
-
-
-
-
-
-
-
 
 /* ---------------------------------- */
 /* Footer
@@ -354,15 +452,20 @@ display:block;
 footer {
 background-color: #78e22a;
 padding-bottom: 20px;
-font-family: 'liberation_sansbold';
+font-family: 'liberation_sansbold', Arial, sans-serif;
 color: #003300;
 }
 ul.footer-links li a {
-padding: 0 12px;
+padding: 8px 12px;
 font-size: 18px;
 text-decoration: underline;
 color: #0000e4;
 position: relative;
+border-radius: 4px;
+}
+ul.footer-links li a:hover,
+ul.footer-links li a:focus {
+background-color: rgba(255, 255, 255, 0.8);
 }
 ul.footer-links li:first-child a{
 border-right: 2px solid #003300;
@@ -374,626 +477,99 @@ text-align: center;
 font-size: 13px;
 line-height: 18px;
 padding: 0;
-font-family: 'Liberation Sans Regular';
+font-family: 'Liberation Sans Regular', Arial, sans-serif;
 }
-.cookiePolicy-block p {
-font-size: 15px;
-line-height: 19px;
-}
-.cookiePolicy-block {
-background: #fff;
-text-align: center;
-padding: 10px 20px;
-font-family: 'Liberation Sans Regular';
-margin: 0 0 28px 0;
-}
-.cookiePolicy-block p a{
-color: #0000e4;
-text-decoration: underline;
-font-size: 15px;
-display: inline-block;
-}
-.privacyPolicy-ok {
-cursor: pointer;
-margin: 0 0 0 12px;
-}
-.cookiePolicy-block.hide-it {
-display: none;
-}
-
 
 /* ---------------------------------- */
-/* 03. Media Queries
+/* 03. Media Queries (Simplified for demo)
 ------------------------------------- */
-/*----- Breakpoint min-width 1680px -----*/
-@media only screen and (min-width : 1680px){
-.banner-section {
-background-position: center 100%;
-}
-body.starfall-homepage div#wrapper {
-min-height: 100vh;
-background-color: #78e22a;
-}
-}
-
-/*----- Breakpoint min-width 1880px -----*/
-@media only screen and (min-width : 1880px){
-section.home-accessibility-section {
-padding: 16px 0 15px;
-}
-}
-
-/*----- Breakpoint min-width 2400px -----*/
-@media only screen and (min-width : 2400px){
-.banner-links-block {
-margin: 35px auto 0;
-}
-.banner-links-block {
-margin: 30px auto 0;
-}
-.banner-section {
-height: 585px;
-}
-section.home-accessibility-section {
-padding: 0 0 15px;
-float: left;
-width: 100%;
-}
-.home-accessibility-section .home-accessibility-block {
-margin-top: -112px;
-float: left;
-}
-.home-accessibility-block h1 {
-padding: 0 0 15px;
-}
-.home-accessibility-section .home-accessibility-block {
-margin-top: -130px;
-}
-
-}
-
-/*----- Breakpoint max-width 1366px -----*/
-@media only screen and (max-width : 1366px){
-p.hidden-text {
-display: none;
-}
-.home-accessibility-block .readMore-block{
-padding: 0;
-}
-.home-accessibility-block p.readMore-block .read-More {
-display:inline-block;
-}
-.kindergarten-grades-section.kindergarten-gradesSection-threeColumn > div {
-margin: 0 30px;
-}
-}
-
-
-/*----- Breakpoint max-width 1200px -----*/
-@media only screen and (max-width : 1200px){
-.home-accessibility-section .home-accessibility-block {
-margin-top: -59px;
-}
-body.starfall-homepage div#wrapper {
-min-height: 100vh;
-background-color: #78e22a;
-}
-.kindergarten-grades-section.kindergarten-gradesSection-threeColumn > div {
-margin: 0;
-width: 31%;
-}
-.kindergarten-grades-section.kindergarten-gradesSection-threeColumn {
-justify-content: space-between;
--webkit-justify-content: space-between;
-}
-.kindergarten-grades-section.kindergarten-gradesSection-threeColumn > div img{
-width: 100%;
-}
-.grades-block.grades-block45 a::after {
-width: 180px;
-height: 19.51px;
-}
-.banner-section.banner-section-threeColumn .banner-links-block {
-
-}
-.banner-section-threeColumn {
-
-}
-}
-
-/*----- Breakpoint max-width 1100px -----*/
-@media only screen and (max-width : 1100px){
-.site-container {
-max-width: 767px;
-padding: 0 20px;
-}
-.menu-bar li::before {
-display: none;
-}
-.hamburger-element {
-width: 38px;
-margin: 0 0 0 27px;
-}
-.menu-bar li a {
-font-size: 15px;
-padding: 13px 10px 8px;
-}
-.menu-bar li:last-child::after {
-display: none;
-}
-.logo img {
-max-width: 167px;
-}
-.mobile-menu-block li a {
-padding: 0 0 20px 0;
-}
-.mobile-menu-block ul {
-padding: 30px 0 0 30px;
-}
-img.closeNav {
-width: 22px;
-right: 20px;
-top: 20px;
-}
-.mobile-menu-block {
-width: 376px;
-}
-.cookiePolicy-block p {
-font-size: 13px;
-line-height: 18px;
-}
-.cookiePolicy-block {
-padding: 10px;
-}
-section.home-accessibility-section {
-padding: 17px 0 15px !important;
-}
-.kindergarten-grades-section.kindergarten-gradesSection-threeColumn > div {
-margin: 0 10px;
-width: auto;
-}
-.home-accessibilitySection-threeColumn .home-accessibility-block{
-
-}
-.banner-section-threeColumn .banner-links-block {
-margin: 27px auto 0;
-}
-.kindergarten-grades-section.kindergarten-gradesSection-threeColumn > div img {
-width: 320px;
-}
-.kindergarten-grades-section.kindergarten-gradesSection-threeColumn {
-justify-content: center;
--webkit-justify-content: center;
-}
-.grades-block.grades-block45 a::after {
-width: 160px;
-height: 17.34px;
-bottom: -18px;
-}
-.banner-section-threeColumn {
-
-}
-
-}
-
-
-/*----- Breakpoint max-width 930px -----*/
-@media only screen and (max-width : 930px){
-.kindergarten-grades-section.kindergarten-gradesSection-threeColumn > div {
-margin: 0 -27px;
-width: 33%;
-}
-.kindergarten-grades-section.kindergarten-gradesSection-threeColumn {
-justify-content: space-between;
--webkit-justify-content: space-between;
-}
-.kindergarten-grades-section.kindergarten-gradesSection-threeColumn > div img {
-width: 100%;
-}
-.banner-section-threeColumn {
-
-}
-.banner-section.banner-section-threeColumn .banner-links-block {
-
-}
-.banner-section-threeColumn .banner-links-block {
-margin: 25px auto 0;
-}
-.grades-block.grades-block45 a::after {
-width: 145px;
-height: 15.71px;
-bottom: -16px;
-}
-}
-
-
-@media screen and (max-width: 1366px) and (max-height: 768px) {
-.kindergarten-grades-section img {
-max-width: 270px;
-margin-left: auto;
-margin-right:auto;
-}
-
-}
-
-@media screen and (max-width: 851px) and (max-height: 393px) {
-.kindergarten-grades-section img {
-max-width: 183px;
-margin-left: auto;
-margin-right: auto;
-}
-}
-
-@media screen and (max-width: 667px) and (max-height: 375px) {
-.home-accessibility-section .home-accessibility-block.privacy-showing {
-margin-top: 15px;
-}
-}
-
-@media screen and (max-width: 812px) and (max-height: 375px) {
-.banner-section {
-padding-bottom: 80px;
-}
-}
-
-/*----- Breakpoint max-width 780px -----*/
-@media only screen and (max-width : 780px){
-.site-container {
-max-width: 100%;
-}
-}
-
-/*----- Breakpoint max-width 767px -----*/
 @media only screen and (max-width : 767px){
-.banner-section {
-padding-bottom: 0px;
-margin-bottom:20px;
-}
-.banner-section.privacy-showing {
-padding-bottom:0px;
-margin-bottom: 0px;
-}
 .site-container {
 padding: 0 15px;
 }
 .hide-on-mob {
 display: none;
 }
-.menu-bar li a {
-font-size: 14px;
-padding: 10px 7px 7px;
-}
-.logo img {
-max-width: 123px;
-}
-.hamburger-element span {
-height: 3px;
-margin: 0 0 7px;
-}
-.hamburger-element {
-width: 30px;
-margin: 0 0 0 9px;
-}
-.banner-links-block li a::after {
-width: 4px;
-height: 4px;
-right: -3px;
-}
-.banner-links-block li a {
-padding: 0 11px;
-}
-p.footer-copyright-text {
-font-size: 12px;
-}
-.mobile-menu-block {
-width: 242px;
-}
-.mobile-menu-block li a {
-padding: 0 0 20px 0;
-}
-.kindergarten-grades-section > div {
-margin: 0 16px;
-}
-.kindergarten-grades-section img {
-max-width: 220px;
-margin: 0 auto;
-}
 .kindergarten-grades-section {
+flex-direction: column;
 padding: 30px 0 0 0;
-}
-.banner-links-block {
-margin: 35px auto 0;
-}
-.banner-section {
-height: unset;
-background: #41c9f9 !important;
-}
-.banner-links-block {
-margin: 32px auto 0;
-}
-.cookiePolicy-block p {
-font-size: 12px;
-line-height: 17px;
-}
-.cookiePolicy-block p a {
-font-size: 13px;
-}
-.home-accessibility-section .home-accessibility-block {
-margin-top: 0;
-}
-.cookiePolicy-block {
-margin: 0 -15px;
-padding: 2px 5px;
-}
-.read-More{
-display: none !important;
-}
-.readMore-block-mob .read-More-mob {
-display: inline-block !important;
-}
-.readMore-block.hidden-text-mob {
-display: none;
-}
-.readMore-block-mob {
-padding: 0 !important;
-}
-.kindergarten-grades-section.kindergarten-gradesSection-threeColumn > div img {
-max-width: 100%;
-}
-.kindergarten-grades-section.kindergarten-gradesSection-threeColumn > div {
-margin: 0 -10px;
-width: 31%;
-}
-.kindergarten-grades-section.kindergarten-gradesSection-threeColumn {
-max-width: 620px;
-margin: 0 auto;
-padding: 40px 0 0 0;
-}
-.banner-section.banner-section-threeColumn {
-
-background: #41c9f9 !important;
-}
-
-.banner-section.banner-section-threeColumn .banner-links-block {
-
-}
-.home-accessibilitySection-threeColumn .home-accessibility-block {
-margin-top: 0;
-}
-.banner-links-block ul {
-background: #78e22a;
-margin: 0 -15px;
-padding: 15px 0 0 0;
-}
-.banner-section-threeColumn .cookiePolicy-block {
-margin: 0 -15px;
-padding: 2px 5px;
-}
-.grades-block.grades-block45 a::after {
-width: 115px;
-height: 12.46px;
-bottom: -14px;
-}
-footer {
-padding-bottom: 15px;
-}
-.home-accessibility-section {
-padding: 0 0 15px !important;
-}
-.cookiePolicy-block p br {
-display: none;
-}
-.cookiePolicy-block p .privacyPolicy-ok {
-padding: 2px 8px;
-margin: 0 0 0 5px;
-}
-
-}
-
-/*----- Breakpoint max-width 663px -----*/
-@media only screen and (max-width : 663px){
-.home-accessibility-section{
-padding: 0 0 15px;
-}
-}
-
-/*----- Breakpoint max-width 575px -----*/
-@media only screen and (max-width : 575px){
-.banner-section .site-container {
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-height: 100%;
-}
-.banner-links-block {
-margin: 10px auto 0;
-}
-.cookiePolicy-block {
-margin: 0 -15px;
-padding: 2px 5px;
-}
-.banner-section {
-height: unset;
-background: #41c9f9 !important;
-}
-.kindergarten-grades-section {
-flex-direction: column;
-padding: 0;
 }
 .kindergarten-grades-section > div {
 margin: 10px 0 0 0;
 }
 .kindergarten-grades-section img {
-max-width: 165px;
+max-width: 220px;
+margin: 0 auto;
 }
-.banner-links-block ul li {
-
+.mobile-menu-block {
+width: 280px;
 }
-.banner-links-block li a {
-padding: 0 5px;
-font-size:.8em;
-}
-.banner-links-block ul li.Accessibility-link{
-display: block !important;
-}
-.banner-links-block ul li.Accessibility-link a {
-border-bottom: 2px solid #0331ba;
-padding: 0;
-display: inline-block !important;
-}
-.banner-links-block ul li.Accessibility-link a:hover {
-border-bottom: 2px solid #000000;
-}
-.banner-links-block li a::after {
-display:none;
-}
-.banner-links-block ul {
-background: #78e22a;
-margin: 0 -15px;
-padding: 15px 0 0 0;
-}
-.home-accessibility-section {
-padding: 0 0 15px;
-}
-section.home-accessibility-section {
-padding: 0 0 10px;
-}
-.home-accessibility-section .home-accessibility-block {
-margin-top: -20px;
-}
-.home-accessibility-block h1 {
-font-size: 15px;
-padding: 0px 0 10px;
-}
-.banner-links-block {
-margin: 15px auto 0;
-}
-.home-accessibility-block p {
-font-size: 13px;
-line-height: 18px;
-}
-.logo img {
-max-width: 100px;
-}
-.menu-bar li a {
-padding: 5px 7px 4px;
-}
-.cookiePolicy-block p {
-line-height: 16px;
-text-align: left;
-}
-.cookiePolicy-block p br{
-display:none;
-}
-.cookiePolicy-block p .privacyPolicy-ok {
-padding: 2px 8px;
-margin: 0 0 0 5px;
-}
-.cookiePolicy-block p a {
-margin: 0 0 0 5px;
-}
-p.footer-copyright-text {
-font-size: 8px;
-line-height: 11px;
-}
-.banner-section.banner-section-threeColumn {
-height: auto;
-}
-.banner-section-threeColumn .cookiePolicy-block {
-margin: 0 -15px;
-padding: 5px;
-}
-.kindergarten-grades-section.kindergarten-gradesSection-threeColumn {
-max-width: 360px;
-padding: 10px 0 0 0;
-flex-direction: row;
-flex-wrap: wrap;
-justify-content: center;
--webkit-justify-content: center;
-}
-.kindergarten-grades-section.kindergarten-gradesSection-threeColumn > div {
-margin: 0 auto 12px;
-width: auto;
-}
-.home-accessibility-section.home-accessibilitySection-threeColumn {
-padding: 0 0 15px;
-}
-.kindergarten-grades-section.kindergarten-gradesSection-threeColumn > div img {
-max-width: none;
-width: 165px;
-}
-
-.banner-section.banner-section-threeColumn .banner-links-block {
-margin: 15px auto 0;
-}
-.grades-block.grades-block45 a::after {
-width: 100px;
-height: 10.84px;
-bottom: -11px;
-}
-
-
 }
 </style>
-
 </head>
 
 <body class="starfall-homepage">
-<noscript style="">
-  <style>
-      .no-js-message {
-          width:100%;
-          background-color:#fff;
-          color:#000;
-          text-align:center;
-          font-size:1.2em;
-          padding:10px;
-      }
-  </style>
-        <img src="/h/_images/index/scriptt-disabled-main-demo.gif" style="display:none;" />
-</noscript>
+<!-- Skip Navigation Link -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 <!-- Wrapper -->
 <div id="wrapper">
 
   <!-- Header -->
-  <header>
+  <header role="banner">
     <div class="site-container">
       <div class="d-flex align-items-center">
         <div class="logo">
-          <a href="#" tabindex="-1"><img src="images/starfall-logo-main-index.png" alt="Starfall logo" title="Starfall logo"></a>
+          <a href="/" aria-label="Starfall Education - Home">
+            <img src="images/starfall-logo-main-index.png" alt="Starfall Education" title="Starfall Education">
+          </a>
         </div>
         <div class="menu-bar">
-          <nav>
+          <nav role="navigation" aria-label="Main navigation">
             <ul class="d-flex">
-              <li class="hide-on-mob"><a href="https://secure.starfall.com/lv/gated?forwardURL=https%3A%2F%2Fstore.starfall.com%2F&returnURL=https%3A%2F%2Fwww.starfall.com%2Fh%2Findex.php&label=The%20Starfall%20Store" tabindex="-1">Store</a></li>
-              <li class="hide-on-mob"><a href="https://teach.starfall.com" tabindex="-1">Parent-Teacher Center</a></li>
-              <li><a href="https://secure.starfall.com/lv/ways-to-join" tabindex="-1">How to Join</a></li>
-              <li><a href="https://secure.starfall.com/memb/login1.php?signin=1" tabindex="-1">Sign In</a></li>
+              <li class="hide-on-mob"><a href="https://store.starfall.com/">Store</a></li>
+              <li class="hide-on-mob"><a href="https://teach.starfall.com">Parent-Teacher Center</a></li>
+              <li><a href="https://secure.starfall.com/lv/ways-to-join">How to Join</a></li>
+              <li><a href="https://secure.starfall.com/memb/login1.php">Sign In</a></li>
             </ul>
           </nav>
-          <form class="hamburgerForm" action="" method="post">
-            <input type="hidden" name="show_need_js_message" value="1">
-          <button class="hamburger-element">
+          <button class="hamburger-element" 
+                  aria-label="Open navigation menu"
+                  aria-expanded="false"
+                  aria-controls="mobile-menu"
+                  id="hamburger-button">
             <span></span>
             <span></span>
             <span></span>
+            <span class="sr-only">Menu</span>
           </button>
-          </form>
           <div class="mobile-menu-block-container">
-            <div class="mobile-menu-block">
-              <ul>
-                <li><a href="https://teach.starfall.com/about" tabindex="-1">About</a></li>
-                <li><a href="https://teach.starfall.com/privacy" tabindex="-1">Privacy</a></li>
-                <li><a href="http://help.starfall.com" tabindex="-1">Help</a></li>
-                <li><a href="https://secure.starfall.com/lv/gated?forwardURL=https%3A%2F%2Fsecure.starfall.com%2Flv%2Fcontact&returnURL=https%3A%2F%2Fwww.starfall.com%2Fh%2Findex.php&label=Contact" tabindex="-1">Contact</a></li>
-                <li><a href="https://secure.starfall.com/lv/gated?forwardURL=https%3A%2F%2Fstore.starfall.com%2F&returnURL=https%3A%2F%2Fwww.starfall.com%2Fh%2Findex.php&label=The%20Starfall%20Store" tabindex="-1">Store</a></li>
-                <li><a href="https://secure.starfall.com/lv/ways-to-join" tabindex="-1">How to Join</a></li>
-                <li><a href="https://secure.starfall.com/lv/gated?forwardURL=https%3A%2F%2Fsecure.starfall.com%2Flv%2Fsettings&returnURL=https%3A%2F%2Fwww.starfall.com%2Fh%2Findex.php&label=Settings" tabindex="-1">Settings</a></li>
-
-              </ul>
-              <img src="images/close-icon.png" alt="Close" title="Close" class="closeNav">
+            <div class="mobile-menu-block" 
+                 id="mobile-menu" 
+                 aria-hidden="true"
+                 role="dialog" 
+                 aria-labelledby="mobile-menu-title">
+              <h2 id="mobile-menu-title" class="sr-only">Navigation Menu</h2>
+              <nav role="navigation" aria-label="Mobile navigation">
+                <ul>
+                  <li><a href="https://teach.starfall.com/about">About</a></li>
+                  <li><a href="https://teach.starfall.com/privacy">Privacy</a></li>
+                  <li><a href="http://help.starfall.com">Help</a></li>
+                  <li><a href="https://secure.starfall.com/lv/contact">Contact</a></li>
+                  <li><a href="https://store.starfall.com/">Store</a></li>
+                  <li><a href="https://secure.starfall.com/lv/ways-to-join">How to Join</a></li>
+                  <li><a href="https://secure.starfall.com/lv/settings">Settings</a></li>
+                </ul>
+              </nav>
+              <button class="mobile-menu-close" 
+                      aria-label="Close navigation menu"
+                      id="close-menu-button">
+                <span class="sr-only">Close Menu</span>
+              </button>
             </div>
-            <div class="mobile-menu-block-overlay"></div>
+            <div class="mobile-menu-block-overlay" 
+                 aria-hidden="true"
+                 id="menu-overlay"></div>
           </div>
         </div>
       </div>
@@ -1001,63 +577,102 @@ bottom: -11px;
   </header>
   <!-- Header / End -->
 
-  <!-- Banner Section -->
-  <section class="banner-section banner-section-threeColumn privacy-showing">
-    <div class="site-container">
-      <div class="kindergarten-grades-section kindergarten-gradesSection-threeColumn">
-        <div class="kindergarten-block">
-          <a href="https://www.starfall.com/h/index-kindergarten.php" tabindex="-1"><img src="images/kindergarten.png" alt="kindergarten" title="kindergarten"></a>
+  <!-- Main Content -->
+  <main id="main-content" role="main">
+    <!-- Banner Section -->
+    <section class="banner-section banner-section-threeColumn privacy-showing" 
+             aria-labelledby="grade-selection-heading">
+      <div class="site-container">
+        <div class="kindergarten-grades-section kindergarten-gradesSection-threeColumn" 
+             role="navigation" 
+             aria-labelledby="grade-selection-heading">
+          <h1 id="grade-selection-heading" class="sr-only">Choose Your Grade Level</h1>
+          <div class="kindergarten-block">
+            <a href="https://www.starfall.com/h/index-kindergarten.php" 
+               class="grade-link"
+               aria-label="Kindergarten learning activities - reading, phonics, and fun educational games">
+              <img src="images/kindergarten.png" alt="Kindergarten" role="img">
+            </a>
+          </div>
+          <div class="grades-block">
+            <a href="https://www.starfall.com/h/index-grades123.php" 
+               class="grade-link"
+               aria-label="Grades 1, 2, and 3 learning activities - advanced reading, math, and educational content">
+              <img src="images/grades123.png" alt="Grades 1-3" role="img">
+            </a>
+          </div>
+          <div class="grades-block grades-block45">
+            <a href="https://www.starfall.com/h/index-grades45.php" 
+               class="grade-link"
+               aria-label="Grades 4 and 5 learning activities - comprehensive curriculum and advanced topics">
+              <img src="images/grades45.png" alt="Grades 4-5" role="img">
+            </a>
+          </div>
         </div>
-        <div class="grades-block">
-          <a href="https://www.starfall.com/h/index-grades123.php" tabindex="-1"><img src="images/grades123.png" alt="Grades 123" title="Grades 123"></a>
+        
+        <div class="banner-links-block">
+          <div class="cookiePolicy-block" role="alert" aria-live="polite">
+            <form id="policyForm" action="" method="post">
+              <p>Starfall has no advertising, does not collect personal information from children, does not sell any information, and uses cookies only for internal website management.
+                By using this site, you agree to our use of cookies and updated 
+                <a href="https://teach.starfall.com/privacy">Privacy Policy</a>
+                <input type="hidden" name="privacy" value="1">
+                <button class="privacyPolicy-ok" type="submit" aria-label="Accept privacy policy and continue">OK</button>
+              </p>
+            </form>
+          </div>
+          
+          <nav role="navigation" aria-label="Site information and policies">
+            <ul class="d-flex justify-content-center">
+              <li><a href="https://starfall.com/h/accessibility.php"><span>Accessibility</span></a></li>
+              <li><a href="https://teach.starfall.com/about"><span>About</span></a></li>
+              <li><a href="http://help.starfall.com"><span>Help</span></a></li>
+              <li><a href="https://secure.starfall.com/lv/contact"><span>Contact</span></a></li>
+              <li><a href="https://teach.starfall.com/terms"><span>Terms</span></a></li>
+              <li><a href="https://teach.starfall.com/privacy"><span>Privacy</span></a></li>
+            </ul>
+          </nav>
         </div>
-        <div class="grades-block grades-block45">
-          <a href="https://www.starfall.com/h/index-grades45.php" tabindex="-1"><img src="images/grades45.png" alt="Grades 45" title="Grades 45"></a>
-        </div>      </div>
-      <div class="banner-links-block">
-        <div class="cookiePolicy-block">
-<form id="policyForm" action="" method="post">
-          <p>Starfall has no advertising, does not collect personal information from children, does not sell any information, and uses cookies only for internal website management.
-            By using this site, you agree to our use of cookies and updated<br> <a href="https://teach.starfall.com/privacy" tabindex="-1">Privacy Policy</a> <input type="hidden" name="privacy" value="1"><button class="privacyPolicy-ok" tabindex="-1">OK</button></p></form>
-        </div>        <ul class="d-flex justify-content-center">
-          <li><a href="https://starfall.com/h/accessibility.php" tabindex="1"><span>Accessibility</span></a></li>
-          <li><a href="https://teach.starfall.com/about" tabindex="2"><span>About</span></a></li>
-          <li><a href="http://help.starfall.com" tabindex="3"><span>Help</span></a></li>
-          <li><a href="https://secure.starfall.com/lv/gated?forwardURL=https%3A%2F%2Fsecure.starfall.com%2Flv%2Fcontact&returnURL=https%3A%2F%2Fwww.starfall.com%2Fh%2Findex.php&label=Contact" tabindex="4"><span>Contact</span></a></li>
-          <li><a href="https://teach.starfall.com/terms" tabindex="5"><span>Terms</span></a></li>
-          <li><a href="https://teach.starfall.com/privacy" tabindex="6"><span>Privacy</span></a></li>
-
-        </ul>
       </div>
-    </div>
-  </section>
-  <!-- Banner Section / End -->
+    </section>
+    <!-- Banner Section / End -->
 
-  <!-- Home Accessibility Section -->
-  <section class="home-accessibility-section home-accessibilitySection-threeColumn">
-    <div class="site-container">
-      <div class="home-accessibility-block privacy-showing">
-
-        <h1>At Starfall, children have fun while they learn.</h1>
-        <form class="readmoreForm" action="" method="post">
-        <p class="readMore-block-mob">Starfall was founded by Dr. Stephen Schutz, who had difficulty learning to read as a child due to dyslexia. He was motivated to create a learning platform with untimed, multisensory interactive games that allow children to see, hear, and touch as they learn.
-          <input type="hidden" name="show_need_js_message" value="1">
-          <button tabindex="8" class="read-More-mob">read more...</button>
-          </p>
-        </form>
-        <form class="readmoreForm" action="" method="post">
-        <p class="readMore-block hidden-text-mob">Starfall was developed in the classroom by teachers and opened in August 2002 as a free public service to teach children to read. Since then it has expanded to include standards in language arts and mathematics for preschool through fifth grade and above. The program emphasizes exploration, play, and positive reinforcement—encouraging children to become confident and intrinsically motivated. Due to the engaging content that “feels like play,” Starfall serves as an educational alternative to other entertainment choices for children.
-
-          <input type="hidden" name="show_need_js_message" value="1"><button tabindex="7" class="read-More" href="#">read more...</button></p></form>
-        <p class="hidden-text">Starfall activities are research-based and align with state learning objectives for English language arts and mathematics. Its emphasis on phonemic awareness, systematic sequential phonics, and common sight words in conjunction with audiovisual interactivity is especially effective for teaching emergent readers, children of all ages with special needs or learning difficulties, as well as ELL (ESL) students. It is widely used in schools and homeschools.</p>
-        <p class="hidden-text">Starfall’s low-cost membership program expands the free content to include additional animated songs, mathematics activities, and reading. Membership supports the production of new books, educational games, and movies.</p>
+    <!-- Home Accessibility Section -->
+    <section class="home-accessibility-section home-accessibilitySection-threeColumn" 
+             aria-labelledby="about-starfall-heading">
+      <div class="site-container">
+        <div class="home-accessibility-block privacy-showing">
+          <h1 id="about-starfall-heading">At Starfall, children have fun while they learn.</h1>
+          
+          <h2>Our Mission</h2>
+          <div id="expandable-content" aria-expanded="false">
+            <p id="short-description">
+              Starfall was founded by Dr. Stephen Schutz, who had difficulty learning to read as a child due to dyslexia. He was motivated to create a learning platform with untimed, multisensory interactive games that allow children to see, hear, and touch as they learn.
+              <button class="read-more-button" 
+                      aria-controls="expandable-content" 
+                      aria-expanded="false"
+                      id="read-more-btn">
+                read more...
+              </button>
+            </p>
+            
+            <div id="additional-content" aria-hidden="true" style="display: none;">
+              <p>Starfall was developed in the classroom by teachers and opened in August 2002 as a free public service to teach children to read. Since then it has expanded to include standards in language arts and mathematics for preschool through fifth grade and above. The program emphasizes exploration, play, and positive reinforcement—encouraging children to become confident and intrinsically motivated. Due to the engaging content that "feels like play," Starfall serves as an educational alternative to other entertainment choices for children.</p>
+              
+              <p>Starfall activities are research-based and align with state learning objectives for English language arts and mathematics. Its emphasis on phonemic awareness, systematic sequential phonics, and common sight words in conjunction with audiovisual interactivity is especially effective for teaching emergent readers, children of all ages with special needs or learning difficulties, as well as ELL (ESL) students. It is widely used in schools and homeschools.</p>
+              
+              <p>Starfall's low-cost membership program expands the free content to include additional animated songs, mathematics activities, and reading. Membership supports the production of new books, educational games, and movies.</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
-  <!-- Home Accessibility Section / End -->
+    </section>
+    <!-- Home Accessibility Section / End -->
+  </main>
+  <!-- Main Content / End -->
 
   <!-- Footer -->
-  <footer>
+  <footer role="contentinfo">
     <div class="site-container">
       <p class="footer-copyright-text">The Starfall Website is a program service of Starfall Education Foundation, a publicly supported nonprofit organization, 501(c)(3). Brought to you by Zac the Rat.™ Starfall® and Starfall.com® are registered trademarks in the U.S., the European Union, and various other countries. Copyright © 2002–2025 by Starfall Education. All rights reserved.</p>
     </div>
@@ -1067,101 +682,196 @@ bottom: -11px;
 </div>
 <!-- Wrapper / End -->
 
-<img src="images/scriptt-all-main-demo.gif" style="display:none;">
-<!-- Scripts
-================================================== -->
+<!-- Scripts -->
 <script>
-  // <!-- Disable Cookies Block -->
-  $(document).ready(function() {
-    $('#policyForm').on('submit', function(e) {
-      e.preventDefault();
-      $.ajax({
-        type: "POST",
-        url: "/h/setprivacycookie.php",
-        contentType: "application/json",
-        data: JSON.stringify({ privacy: 1 }),
-        success: function() {
-          modifyFooter();
-          //setCookie("privacy","ok");
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-          // Handle error
-          console.error("Error: ", textStatus, errorThrown);
+// Utility function for focus trapping
+function trapFocus(element) {
+  const focusableElements = element.querySelectorAll(
+    'a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select'
+  );
+  const firstElement = focusableElements[0];
+  const lastElement = focusableElements[focusableElements.length - 1];
+
+  element.addEventListener('keydown', function(e) {
+    if (e.key === 'Tab') {
+      if (e.shiftKey) {
+        if (document.activeElement === firstElement) {
+          lastElement.focus();
+          e.preventDefault();
         }
+      } else {
+        if (document.activeElement === lastElement) {
+          firstElement.focus();
+          e.preventDefault();
+        }
+      }
+    }
+  });
+}
+
+// Privacy Policy Form Handler
+document.addEventListener('DOMContentLoaded', function() {
+  const policyForm = document.getElementById('policyForm');
+  if (policyForm) {
+    policyForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Hide privacy notice
+      const cookieBlock = document.querySelector('.cookiePolicy-block');
+      if (cookieBlock) {
+        cookieBlock.classList.add('hide-it');
+        cookieBlock.setAttribute('aria-hidden', 'true');
+      }
+      
+      // Update layout classes
+      document.querySelectorAll('.privacy-showing').forEach(el => {
+        el.classList.remove('privacy-showing');
       });
+      
+      // Announce to screen readers
+      const announcement = document.createElement('div');
+      announcement.setAttribute('aria-live', 'polite');
+      announcement.setAttribute('aria-atomic', 'true');
+      announcement.className = 'sr-only';
+      announcement.textContent = 'Privacy policy accepted. Cookie notice dismissed.';
+      document.body.appendChild(announcement);
+      
+      setTimeout(() => {
+        document.body.removeChild(announcement);
+      }, 1000);
     });
-  });
-
-  function modifyFooter() {
-    $('.privacy-showing').removeClass('privacy-showing');
-    $(".cookiePolicy-block").addClass('hide-it').hide();
-    $(".banner-links-block").addClass('change-position');
-    $(".home-accessibility-section").addClass('change-position');
   }
 
-  function setCookie(name,val) {
-    Cookies.setLocalCookie(name, val, true);
+  // Mobile Menu Functionality
+  const hamburger = document.getElementById('hamburger-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const closeButton = document.getElementById('close-menu-button');
+  const overlay = document.getElementById('menu-overlay');
+
+  function openMenu() {
+    hamburger.setAttribute('aria-expanded', 'true');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    overlay.setAttribute('aria-hidden', 'false');
+    
+    // Focus first menu item
+    const firstMenuItem = mobileMenu.querySelector('a');
+    if (firstMenuItem) {
+      firstMenuItem.focus();
+    }
+    
+    // Trap focus in menu
+    trapFocus(mobileMenu);
+    
+    // Prevent body scroll
+    document.body.style.overflow = 'hidden';
   }
 
-  function ReadCookie(name) {
-    var cookiesLocal = Cookies.getLocalCookies();
-    return cookiesLocal[name] || null;
+  function closeMenu() {
+    hamburger.setAttribute('aria-expanded', 'false');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    overlay.setAttribute('aria-hidden', 'true');
+    
+    // Return focus to hamburger button
+    hamburger.focus();
+    
+    // Restore body scroll
+    document.body.style.overflow = '';
   }
 
-  // <!-- Mobile Menu Functionality -->
-  const hamburger = document.querySelector('.hamburger-element');
-  const siteNav = document.querySelector('.mobile-menu-block');
-  const closeNav = document.querySelector('.closeNav');
-  const mobMenuOverlay = document.querySelector('.mobile-menu-block-overlay');
-
-  hamburger.addEventListener('click', event => {
-    event.preventDefault();
-    hamburger.classList.toggle('is-active');
-    siteNav.classList.toggle('is-open');
-    mobMenuOverlay.classList.toggle('is-active');
-  });
-
-  closeNav.addEventListener('click', event => {
-    event.preventDefault();
-    hamburger.classList.remove('is-active');
-    siteNav.classList.remove('is-open');
-    mobMenuOverlay.classList.remove('is-active');
-  });
-
-  mobMenuOverlay.addEventListener('click', event => {
-    event.preventDefault();
-    hamburger.classList.remove('is-active');
-    siteNav.classList.remove('is-open');
-    mobMenuOverlay.classList.remove('is-active');
-  });
-
-  // <!-- Show Hidden Text Functionality -->
-  const readMore = document.querySelector('.read-More');
-  const readMoreBlock = document.querySelector('.readMore-block');
-  const hiddenText = document.querySelectorAll('.hidden-text');
-
-  readMore.addEventListener('click', event => {
-    event.preventDefault();
-    $('.readMore-block-mob').removeClass('readMore-block-mob');
-    readMoreBlock.classList.remove('readMore-block');
-    hiddenText.forEach(hiddenText => {
-      hiddenText.classList.remove('hidden-text');
+  // Hamburger click
+  if (hamburger) {
+    hamburger.addEventListener('click', function(e) {
+      e.preventDefault();
+      const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
     });
-  });
 
-  const readMoreMob = document.querySelector('.read-More-mob');
-  const readMoreBlockMob = document.querySelector('.readMore-block-mob');
-
-  readMoreMob.addEventListener('click', event => {
-    event.preventDefault();
-    $('.readMore-block-mob').removeClass('readMore-block-mob');
-    readMoreBlock.classList.remove('readMore-block');
-    hiddenText.forEach(hiddenText => {
-      hiddenText.classList.remove('hidden-text');
+    // Hamburger keyboard events
+    hamburger.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
+        if (isOpen) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      }
     });
+  }
+
+  // Close button
+  if (closeButton) {
+    closeButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      closeMenu();
+    });
+  }
+
+  // Overlay click
+  if (overlay) {
+    overlay.addEventListener('click', function(e) {
+      e.preventDefault();
+      closeMenu();
+    });
+  }
+
+  // Escape key to close menu
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && mobileMenu && mobileMenu.getAttribute('aria-hidden') === 'false') {
+      closeMenu();
+    }
   });
 
+  // Read More Functionality
+  const readMoreBtn = document.getElementById('read-more-btn');
+  const additionalContent = document.getElementById('additional-content');
+  const expandableContent = document.getElementById('expandable-content');
+
+  if (readMoreBtn && additionalContent && expandableContent) {
+    readMoreBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const isExpanded = readMoreBtn.getAttribute('aria-expanded') === 'true';
+      
+      if (isExpanded) {
+        // Collapse
+        additionalContent.style.display = 'none';
+        additionalContent.setAttribute('aria-hidden', 'true');
+        readMoreBtn.setAttribute('aria-expanded', 'false');
+        expandableContent.setAttribute('aria-expanded', 'false');
+        readMoreBtn.textContent = 'read more...';
+        readMoreBtn.setAttribute('aria-label', 'Expand to read more about Starfall');
+      } else {
+        // Expand
+        additionalContent.style.display = 'block';
+        additionalContent.setAttribute('aria-hidden', 'false');
+        readMoreBtn.setAttribute('aria-expanded', 'true');
+        expandableContent.setAttribute('aria-expanded', 'true');
+        readMoreBtn.textContent = 'read less...';
+        readMoreBtn.setAttribute('aria-label', 'Collapse to read less about Starfall');
+        
+        // Announce to screen readers
+        const announcement = document.createElement('div');
+        announcement.setAttribute('aria-live', 'polite');
+        announcement.className = 'sr-only';
+        announcement.textContent = 'Additional content expanded';
+        document.body.appendChild(announcement);
+        
+        setTimeout(() => {
+          if (document.body.contains(announcement)) {
+            document.body.removeChild(announcement);
+          }
+        }, 1000);
+      }
+    });
+  }
+});
 </script>
 
-
-</body></html>
+</body>
+</html>
