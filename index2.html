@@ -12,6 +12,21 @@
 ---------------------------------------------------------------------- */
 
 /* Common Styles */
+
+#short-description,
+#additional-content p {
+  font-size: 1.25rem !important;
+  line-height: 1.6 !important;
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+
+.read-more-button {
+  font-size: 1rem; /* optional: ensure button remains smaller than paragraph */
+  margin-top: 0.5rem;
+}
+
 *{
 padding: 0;
 box-sizing: border-box;
@@ -644,7 +659,7 @@ width: 280px;
         <div class="home-accessibility-block privacy-showing">
           <h1 id="about-starfall-heading">At Starfall, children have fun while they learn.</h1>
           
-          <h2>Our Mission</h2>
+          <!-- <h2>Our Mission</h2> -->
           <div id="expandable-content" aria-expanded="false">
             <p id="short-description">
               Starfall was founded by Dr. Stephen Schutz, who had difficulty learning to read as a child due to dyslexia. He was motivated to create a learning platform with untimed, multisensory interactive games that allow children to see, hear, and touch as they learn.
@@ -849,11 +864,14 @@ document.addEventListener('DOMContentLoaded', function() {
       } else {
         // Expand
         additionalContent.style.display = 'block';
+        
         additionalContent.setAttribute('aria-hidden', 'false');
         readMoreBtn.setAttribute('aria-expanded', 'true');
         expandableContent.setAttribute('aria-expanded', 'true');
         readMoreBtn.textContent = 'read less...';
         readMoreBtn.setAttribute('aria-label', 'Collapse to read less about Starfall');
+       
+       
         
         // Announce to screen readers
         const announcement = document.createElement('div');

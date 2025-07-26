@@ -59,3 +59,4 @@ var Cookies = {
 		window.localStorage.removeItem(c);
 	}
 }
+
